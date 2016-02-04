@@ -1,0 +1,19 @@
+<div id="smallCard" class="col-md-12">
+    <h2>Add New Employee</h2>
+    <form novalidate name="newEmployeeForm" ng-submit="viewModel.addEmployee()">
+        <div class="form-group">
+            <label for="name">Name: (Required)</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="viewModel.newEmployee.name" required />
+            <span ng-show="newEmployeeForm.name.$error.required" class="text-warning">Name is required.</span>
+        </div>
+        <div class="form-group">
+            <label for="payRate">Pay Rate: (Required)</label>
+            <input class="form-control" type="number" id="payRate" name="payRate" ng-model="viewModel.newEmployee.payRate" required />
+            <span ng-show="newEmployeeForm.payRate.$error.required" class="text-warning">Pay Rate is required.</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-sm" value="Add" ng-disabled="newEmployeeForm.$invalid" />
+            <a href="#//" id="btnCancel" class="btn btn-info btn-sm">Cancel</a>
+        </div>
+    </form>
+</div>

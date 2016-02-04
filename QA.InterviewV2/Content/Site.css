@@ -1,0 +1,135 @@
+﻿#leftNavigationBarToggle {
+    margin-top: 2px;
+    margin-right: 2%;
+}
+
+#main {
+    padding-top: 70px;
+    max-width: 100%;
+}
+
+#footer h6 {
+    color: whitesmoke;
+}
+
+.navbar a, .table a, .table i, .btn
+{
+	-o-transition:.25s;
+	-ms-transition:.25s;
+	-moz-transition:.25s;
+	-webkit-transition:.25s;
+	transition:.25s;
+}
+
+#smallCard {
+    display:block;
+    margin-left: 15px;
+}
+
+#smallCard input {
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+#smallCard a {
+    margin-top: 10px;
+}
+
+
+#employeeGrid th a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #d9230f;
+}
+
+#employeeGrid th a:hover {
+    color: #91170a;
+}
+
+#employeeGrid th a:visited {
+    color: #d9230f;
+}
+
+#employeeGrid i.fa:last-child {
+    margin-right: 15px;
+}
+
+#employeeGrid td i.fa {
+    font-size: 1.5em;
+    color: #d9230f;
+}
+
+#employeeGrid td i.fa:hover {
+    font-size: 1.5em;
+    color: #91170a;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    color: #fac0ba;
+}
+
+.btn-info:hover {
+    color: #B0E0E6
+}
+
+.btn-success:hover {
+    color: #ACE1AF;
+}
+
+#leftNavigationBar {
+  padding-top: 50px;
+  background: whitesmoke;
+  color: #eee;
+  position: fixed;
+  height: 100%;
+  width: 150px;
+  overflow: hidden;
+  left: 0;
+  margin: 0;
+  -moz-transition: left ease .25s;
+  -o-transition: left ease .25s;
+  -webkit-transition: left ease .25s;
+  transition: left ease .25s;
+}
+
+#leftNavigationBar.hide-sidebar {
+  left: -150px;
+  -moz-transition: left ease .25s;
+  -o-transition: left ease .25s;
+  -webkit-transition: left ease .25s;
+  transition: left ease .25s;
+}
+
+#body {
+  margin: 0 0 0 150px;
+  -moz-transition: margin-left ease .25s;
+  -o-transition: margin-left ease .25s;
+  -webkit-transition: margin-left ease .25s;
+  transition: margin-left ease .25s;
+}
+
+  #body.hide-sidebar {
+    margin-left: 0;
+    -moz-transition: margin-left ease .25s;
+    -o-transition: margin-left ease .25s;
+    -webkit-transition: margin-left ease .25s;
+    transition: margin-left ease .25s;
+  }
+
+#legendCard {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border: 1px solid #d9230f;
+    width: 200px;
+}
+
+#legendCardHeader {
+    background-color: #d9230f;
+    display: inline-block;
+    min-width: 100%;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    color: #eeeeee;
+}

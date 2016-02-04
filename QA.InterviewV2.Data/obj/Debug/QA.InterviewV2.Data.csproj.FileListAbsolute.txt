@@ -1,0 +1,8 @@
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\QA.InterviewV2.Data.dll
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\QA.InterviewV2.Data.pdb
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\EntityFramework.dll
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\EntityFramework.xml
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\obj\Debug\QA.InterviewV2.Data.dll
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.Data\obj\Debug\QA.InterviewV2.Data.pdb
