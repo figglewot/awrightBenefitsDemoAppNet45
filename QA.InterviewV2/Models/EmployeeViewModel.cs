@@ -21,7 +21,6 @@ namespace QA.InterviewV2.Models
             {
                 if (Name.ToUpper().StartsWith("A"))
                 {
-                    //Discount applied to EE benefits and already applied to Dependent benefits
                     return PayRate - (CostOfBenefits - ((CostOfBenefits) * (decimal).1));
                 }
                 else

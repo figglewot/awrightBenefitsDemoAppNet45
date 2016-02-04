@@ -2,9 +2,13 @@
     angular.module("app-employees")
         .controller("employeesController", employeesController);
 
-    function employeesController($http) {
+    function employeesController($http, $location) {
 
         var viewModel = this;
+
+        viewModel.sortType = "name";
+        viewModel.sortReverse = false;
+        viewModel.searchName = "";
 
         viewModel.employees = [];
 
@@ -31,6 +35,7 @@
                 .then(function (response) {
                     viewModel.employees.push(response.data);
                     viewModel.newEmployee = {};
+                    $location.path("#//");
                 }, function (error) {
                     viewModel.errorMessage = "Failed to save new employee: " + error;
                 })

@@ -1,16 +1,28 @@
 <div class="container-fluid">
     <div class="text-danger" ng-show="viewModel.errorMessage">{{ viewModel.errorMessage }}</div>
-    <wait-cursor ng-show="viewModel.isBusy"></wait-cursor>
     <label class="text-center">Click an Employees Name to view more details.</label>
     <table id="employeeGrid" class="table table-responsive table-striped table-hover">
         <tr>
-            <th class="col-md-1"><a href="#//" id="employeeIdSort">Employee Id <i class="fa fa-chevron-down"></i></a></th>
-            <th class="col-md-1"><a href="#//" id="employeeNameSort">Employee Name <i class="fa fa-chevron-down"></i></a></th>
+            <th class="col-md-1">
+                <a href="#//" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+                    Employee Id
+                    <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-chevron-down"></span>
+                    <span ng-show="sortType == 'id' && sortReverse" class="fa fa-chevron-up"></span>
+                </a>
+            </th>
+            <th class="col-md-1">
+                <a href="#//" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                    Employee Name
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-chevron-down"></span>
+                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-chevron-up"></span>
+                </a>
+            </th>
             <th class="col-md-1"># Of Dependents</th>
             <th class="col-md-1">Pay After Deductions</th>
             <th class="col-md-1">Action</th>
         </tr>
-        <tr ng-repeat="employee in viewModel.employees">
+        <tr ng-repeat="employee in viewModel.employees | orderBy:sortType:sortReverse">
+
             <td>{{ employee.employeeId }}</td>
             <td><a ng-href="#/viewEmployeeDetails/{{ employee.employeeId }}">{{ employee.name }}</a></td>
             <td>{{ employee.dependents.length }}</td>
@@ -22,6 +34,8 @@
             </td>
         </tr>
     </table>
+    <wait-cursor id="imgWaitSpinner" ng-show="viewModel.isBusy"></wait-cursor>
+    <h6 id="lblNoEmployees" ng-show="!viewModel.employees.length">You currently have no employees. You can pick some up at the fyrestone bounty board!....or just click the add button</h6>
     <a id="btnAddEmployee" href="#/addNewEmployee" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Employee</a>
     <div id="legendCard">
         <div class="row" id="legendCardHeader">

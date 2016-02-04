@@ -4,7 +4,7 @@
 
     function waitCursor() {
         return {
-            templateUrl: "/../views/waitCursor.html"
+            templateUrl: "Scripts/views/waitCursor.html"
         };
     }
 

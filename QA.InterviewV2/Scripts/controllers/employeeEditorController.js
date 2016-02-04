@@ -3,7 +3,7 @@
     angular.module("app-employees")
         .controller("employeeEditorController", employeeEditorController);
 
-    function employeeEditorController($routeParams, $http) {
+    function employeeEditorController($routeParams, $http, $location) {
         var viewModel = this;
 
         viewModel.employeeInfo = {};
@@ -31,6 +31,7 @@
             $http.post("/api/employees/" + viewModel.employeeId, viewModel.employeeInfo)
                 .then(function (response) {
                     viewModel.employeeInfo.push(response.data);
+                    $location.path("#//");
                 }, function (error) {
                     viewModel.errorMessage = "Failed to save new employee: " + error;
                 })
