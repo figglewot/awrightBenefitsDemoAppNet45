@@ -52,7 +52,9 @@ namespace QA.InterviewV2.Data.Repositories
 
         public Employee DeleteEmployee(int employeeId)
         {
-            var employee = _context.Employees.FirstOrDefault(x => x.EmployeeId == employeeId);
+            var employee = _context.Employees
+                .Include(x => x.Dependents)
+                .FirstOrDefault(x => x.EmployeeId == employeeId);
             return _context.Employees.Remove(employee);
         }
 
