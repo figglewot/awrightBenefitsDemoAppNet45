@@ -4,4 +4,4 @@ A small app for a job interview challenge....the .NET 4.5 version, because my ho
 
 //TODO:
 
--Add dependent benefit cost logic to running deduction costs. -Implement delete functionality[DONE]. -Tweak styling. -Implement employee grid sorting.
+-Add dependent benefit cost logic to running deduction costs. -Implement delete functionality[DONE]. -Tweak styling. -Implement employee grid sorting[DONE].
