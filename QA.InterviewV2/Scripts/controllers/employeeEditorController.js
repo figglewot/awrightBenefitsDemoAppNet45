@@ -28,12 +28,11 @@
             viewModel.isBusy = true;
             viewModel.errorMessage = "";
 
-            $http.post("/api/employees/" + viewModel.employeeId, viewModel.employeeInfo)
-                .then(function (response) {
-                    viewModel.employeeInfo.push(response.data);
+            $http.patch("/api/employees/" + viewModel.employeeId, viewModel.employeeInfo)
+                .then(function () {
                     $location.path("#//");
                 }, function (error) {
-                    viewModel.errorMessage = "Failed to save new employee: " + error;
+                    viewModel.errorMessage = "Failed to edit employee: " + error;
                 })
                 .finally(function () {
                     viewModel.isBusy = false;

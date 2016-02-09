@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using AutoMapper;
 using QA.InterviewV2.Data.Entities;
@@ -18,51 +21,80 @@ namespace QA.InterviewV2.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<EmployeeViewModel> Get()
+        public HttpResponseMessage Get()
         {
+            //Perhaps Service Action should be same as repo method name for consistency?
             var results = Mapper.Map<IEnumerable<EmployeeViewModel>>(_employeeRepository.GetAllEmployeesWithDependents());
-            return results;
+            return Request.CreateResponse(HttpStatusCode.OK, results);
         }
 
         [HttpGet]
-        public EmployeeViewModel Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             var results = Mapper.Map<EmployeeViewModel>(_employeeRepository.GetEmployeesWithDependentsById(id));
-            return results;
+            return Request.CreateResponse(HttpStatusCode.OK, results);
         }
 
         [HttpPost]
-        public EmployeeViewModel Post([FromBody]EmployeeViewModel viewModel)
+        public HttpResponseMessage Post([FromBody]EmployeeViewModel viewModel)
         {
-            var newEmployee = Mapper.Map<Employee>(viewModel);
-            _employeeRepository.AddEmployee(newEmployee);
-            _employeeRepository.SaveAll();
-            return Mapper.Map<EmployeeViewModel>(newEmployee);
-        }
-
-        [HttpPost]
-        public EmployeeViewModel Post([FromBody]EmployeeViewModel viewModel, int id)
-        {
-            var newEmployee = Mapper.Map<Employee>(viewModel);
-            var editEmployee = Mapper.Map<Employee>(viewModel);
-            if (id > 0)
+            try
             {
-                _employeeRepository.EditEmployee(editEmployee);
-            }
-            else
-            {
+                var newEmployee = Mapper.Map<Employee>(viewModel);
                 _employeeRepository.AddEmployee(newEmployee);
+                if (_employeeRepository.SaveAll())
+                {     
+                    return Request.CreateResponse(HttpStatusCode.Created, Mapper.Map<EmployeeViewModel>(newEmployee));
+                }
             }
-            _employeeRepository.SaveAll();
-            return Mapper.Map<EmployeeViewModel>(newEmployee);
+            catch (Exception ex)
+            {
+                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPatch]
+        public HttpResponseMessage Patch([FromBody]EmployeeViewModel viewModel, int id)
+        {
+            try
+            {
+                var editEmployee = Mapper.Map<Employee>(viewModel);
+                _employeeRepository.EditEmployee(editEmployee);
+                if (_employeeRepository.SaveAll())
+                {   
+                    return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<EmployeeViewModel>(editEmployee));
+                }
+            }
+            catch (Exception ex)
+            {
+                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
         [HttpDelete]
-        public Employee Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            _employeeRepository.DeleteEmployee(id);
-            _employeeRepository.SaveAll();
-            return null;
+            try
+            {
+                _employeeRepository.DeleteEmployee(id);
+                if (_employeeRepository.SaveAll())
+                {   
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+            }
+            catch (Exception ex)
+            {
+                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

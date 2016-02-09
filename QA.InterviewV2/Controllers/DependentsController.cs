@@ -18,19 +18,35 @@ namespace QA.InterviewV2.Controllers
         {
             _employeeRepository = employeeRepository;
         }
+
         [HttpGet]
-        public IEnumerable<DependentViewModel> Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             var results = _employeeRepository.GetEmployeesWithDependentsById(id);
-            return Mapper.Map<IEnumerable<DependentViewModel>>(results.Dependents);   
+
+            return Request.CreateResponse(HttpStatusCode.OK,
+                Mapper.Map<IEnumerable<DependentViewModel>>(results.Dependents));
         }
+
         [HttpPost]
-        public DependentViewModel Post(int id, [FromBody]DependentViewModel viewModel)
+        public HttpResponseMessage Post(int id, [FromBody] DependentViewModel viewModel)
         {
-            var newDependent = Mapper.Map<Dependent>(viewModel);
-            _employeeRepository.AddDependent(id, newDependent);
-            _employeeRepository.SaveAll();
-            return Mapper.Map<DependentViewModel>(newDependent);
+            try
+            {
+                var newDependent = Mapper.Map<Dependent>(viewModel);
+                _employeeRepository.AddDependent(id, newDependent);
+                if (_employeeRepository.SaveAll())
+                {
+                    return Request.CreateResponse(HttpStatusCode.Created,Mapper.Map<DependentViewModel>(newDependent));
+                }
+            }
+            catch (Exception ex)
+            {
+                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }
