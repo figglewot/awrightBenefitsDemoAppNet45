@@ -4,14 +4,14 @@
     <table id="employeeGrid" class="table table-responsive table-striped table-hover">
         <tr>
             <th class="col-md-1">
-                <a href="#//" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+                <a ng-href="/" ng-click="sortType = 'id'; sortReverse = !sortReverse">
                     Employee Id
                     <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-chevron-down"></span>
                     <span ng-show="sortType == 'id' && sortReverse" class="fa fa-chevron-up"></span>
                 </a>
             </th>
             <th class="col-md-1">
-                <a href="#//" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                <a ng-href="/" ng-click="sortType = 'name'; sortReverse = !sortReverse">
                     Employee Name
                     <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-chevron-down"></span>
                     <span ng-show="sortType == 'name' && sortReverse" class="fa fa-chevron-up"></span>
