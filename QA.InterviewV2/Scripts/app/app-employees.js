@@ -1,6 +1,6 @@
 (function () {
     angular.module("app-employees", ["reusableControls", "ngRoute"])
-        .config(function($routeProvider) {
+        .config(function($routeProvider, $locationProvider) {
 
             $routeProvider.when("/", {
                 controller: "employeesController",
@@ -39,5 +39,7 @@
             });
 
             $routeProvider.otherwise({ redirectTo: "/" });
+
+            $locationProvider.html5Mode(true);
         });
 })();

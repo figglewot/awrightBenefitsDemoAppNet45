@@ -24,19 +24,19 @@
         <tr ng-repeat="employee in viewModel.employees | orderBy:sortType:sortReverse">
 
             <td>{{ employee.employeeId }}</td>
-            <td><a ng-href="#/viewEmployeeDetails/{{ employee.employeeId }}">{{ employee.name }}</a></td>
+            <td><a ng-href="/viewEmployeeDetails/{{ employee.employeeId }}">{{ employee.name }}</a></td>
             <td>{{ employee.dependents.length }}</td>
             <td>{{ employee.payAfterBenefits | currency }}</td>
             <td>
-                <a ng-href="#/addDependents/{{ employee.employeeId }}"><i class="fa fa-user-plus" title="Add Dependents"></i></a>
-                <a ng-href="#/editEmployee/{{ employee.employeeId }}"><i class="fa fa-pencil" title="Edit"></i></a>
-                <a ng-href="#/deleteEmployee/{{ employee.employeeId }}"><i class="fa fa-remove" title="Delete"></i></a>
+                <a ng-href="/addDependents/{{ employee.employeeId }}"><i class="fa fa-user-plus" title="Add Dependents"></i></a>
+                <a ng-href="/editEmployee/{{ employee.employeeId }}"><i class="fa fa-pencil" title="Edit"></i></a>
+                <a ng-href="/deleteEmployee/{{ employee.employeeId }}"><i class="fa fa-remove" title="Delete"></i></a>
             </td>
         </tr>
     </table>
     <wait-cursor id="imgWaitSpinner" ng-show="viewModel.isBusy"></wait-cursor>
     <h6 id="lblNoEmployees" ng-show="!viewModel.employees.length">You currently have no employees. You can pick some up at the fyrestone bounty board!....or just click the add button</h6>
-    <a id="btnAddEmployee" href="#/addNewEmployee" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Employee</a>
+    <a id="btnAddEmployee" href="/addNewEmployee" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Employee</a>
     <div id="legendCard">
         <div class="row" id="legendCardHeader">
             <label>Legend</label>

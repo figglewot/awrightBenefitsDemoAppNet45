@@ -30,7 +30,7 @@
 
             $http.patch("/api/employees/" + viewModel.employeeId, viewModel.employeeInfo)
                 .then(function () {
-                    $location.path("#//");
+                    $location.path("/");
                 }, function (error) {
                     viewModel.errorMessage = "Failed to edit employee: " + error;
                 })

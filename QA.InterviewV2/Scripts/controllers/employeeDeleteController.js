@@ -16,7 +16,7 @@
         $http.delete("/api/employees/" + viewModel.employeeId)
             .then(function (response) {
                 viewModel.ServerResponse = response;
-                $location.path("#//");
+                $location.path("/");
             }, function(err) {
                 viewModel.errorMessage = "Failed to Delete Employee" + err;
             })

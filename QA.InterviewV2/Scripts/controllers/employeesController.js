@@ -35,7 +35,7 @@
                 .then(function (response) {
                     viewModel.employees.push(response.data);
                     viewModel.newEmployee = {};
-                    $location.path("#//");
+                    $location.path("/");
                 }, function (error) {
                     viewModel.errorMessage = "Failed to save new employee: " + error;
                 })
