@@ -20,16 +20,15 @@ namespace QA.InterviewV2.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public IHttpActionResult Get(int id)
         {
             var results = _employeeRepository.GetEmployeesWithDependentsById(id);
 
-            return Request.CreateResponse(HttpStatusCode.OK,
-                Mapper.Map<IEnumerable<DependentViewModel>>(results.Dependents));
+            return Ok(Mapper.Map<IEnumerable<DependentViewModel>>(results.Dependents));
         }
 
         [HttpPost]
-        public HttpResponseMessage Post(int id, [FromBody] DependentViewModel viewModel)
+        public IHttpActionResult Post(int id, [FromBody] DependentViewModel viewModel)
         {
             try
             {
@@ -37,16 +36,16 @@ namespace QA.InterviewV2.Controllers
                 _employeeRepository.AddDependent(id, newDependent);
                 if (_employeeRepository.SaveAll())
                 {
-                    return Request.CreateResponse(HttpStatusCode.Created,Mapper.Map<DependentViewModel>(newDependent));
+                    return Created("",Mapper.Map<DependentViewModel>(newDependent));
                 }
             }
             catch (Exception ex)
             {
-                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                //Out of concerns for security, we do need to be careful showing raw exception data, but for this case it should be fine.
+                return BadRequest(ex.Message);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            return BadRequest();
         }
     }
 }

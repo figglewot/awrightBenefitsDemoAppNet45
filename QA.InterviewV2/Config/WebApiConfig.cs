@@ -20,7 +20,7 @@ namespace QA.InterviewV2.Config
             configuration.Routes.MapHttpRoute(
                 name: "DependentsApi",
                 routeTemplate: "api/employees/{id}/dependents",
-                defaults: new { controller = "dependents"});
+                defaults: new { controller = "dependents" });
 
             var jsonFormatter = configuration.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

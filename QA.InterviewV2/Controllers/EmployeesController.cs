@@ -21,22 +21,22 @@ namespace QA.InterviewV2.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Get()
+        public IHttpActionResult Get()
         {
             //Perhaps Service Action should be same as repo method name for consistency?
             var results = Mapper.Map<IEnumerable<EmployeeViewModel>>(_employeeRepository.GetAllEmployeesWithDependents());
-            return Request.CreateResponse(HttpStatusCode.OK, results);
+            return Ok(results);
         }
 
         [HttpGet]
-        public HttpResponseMessage Get(int id)
+        public IHttpActionResult Get(int id)
         {
             var results = Mapper.Map<EmployeeViewModel>(_employeeRepository.GetEmployeesWithDependentsById(id));
-            return Request.CreateResponse(HttpStatusCode.OK, results);
+            return Ok(results);
         }
 
         [HttpPost]
-        public HttpResponseMessage Post([FromBody]EmployeeViewModel viewModel)
+        public IHttpActionResult Post([FromBody]EmployeeViewModel viewModel)
         {
             try
             {
@@ -44,20 +44,20 @@ namespace QA.InterviewV2.Controllers
                 _employeeRepository.AddEmployee(newEmployee);
                 if (_employeeRepository.SaveAll())
                 {     
-                    return Request.CreateResponse(HttpStatusCode.Created, Mapper.Map<EmployeeViewModel>(newEmployee));
+                    return Created("",Mapper.Map<EmployeeViewModel>(newEmployee));
                 }
             }
             catch (Exception ex)
             {
-                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                //Out of concerns for security, we do need to be careful showing raw exception data, but for this case it should be fine.
+                return BadRequest(ex.Message);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            return BadRequest();
         }
 
         [HttpPatch]
-        public HttpResponseMessage Patch([FromBody]EmployeeViewModel viewModel, int id)
+        public IHttpActionResult Patch([FromBody]EmployeeViewModel viewModel, int id)
         {
             try
             {
@@ -65,36 +65,36 @@ namespace QA.InterviewV2.Controllers
                 _employeeRepository.EditEmployee(editEmployee);
                 if (_employeeRepository.SaveAll())
                 {   
-                    return Request.CreateResponse(HttpStatusCode.OK, Mapper.Map<EmployeeViewModel>(editEmployee));
+                    return Ok(Mapper.Map<EmployeeViewModel>(editEmployee));
                 }
             }
             catch (Exception ex)
             {
-                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                //Out of concerns for security, we do need to be careful showing raw exception data, but for this case it should be fine.
+                return BadRequest(ex.ToString());
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            return BadRequest();
         }
 
         [HttpDelete]
-        public HttpResponseMessage Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
             try
             {
                 _employeeRepository.DeleteEmployee(id);
                 if (_employeeRepository.SaveAll())
                 {   
-                    return Request.CreateResponse(HttpStatusCode.OK);
+                    return Ok();
                 }
             }
             catch (Exception ex)
             {
-                //Out of concerns for security, we do need to be careful using CreateErrorResponse, but for this case it should be fine.
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                //Out of concerns for security, we do need to be careful showing raw exception data, but for this case it should be fine.
+                return BadRequest(ex.Message);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            return BadRequest();
         }
     }
 }
