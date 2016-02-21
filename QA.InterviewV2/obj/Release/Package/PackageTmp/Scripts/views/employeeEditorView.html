@@ -1,0 +1,22 @@
+<div id="smallCard" class="col-md-12">
+    <h2>Edit Employee</h2>
+    <h4>{{viewModel.employeeInfo.name}}</h4>
+    <form novalidate name="editEmployeeForm" ng-submit="viewModel.editEmployee()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="viewModel.employeeInfo.name" required />
+            <span ng-show="editEmployeeForm.name.$error.required" class="text-warning">Name is required.</span>
+        </div>
+        <div class="form-group">
+            <label for="name">Pay Rate:</label>
+            <input class="form-control" type="number" id="payRate"
+                   name="payRate" ng-model="viewModel.employeeInfo.payRate" required disabled="" />
+            <span ng-show="editEmployeeForm.payRate.$error.required" class="text-warning">Pay Rate is required.</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-sm" value="Save" ng-disabled="editEmployeeForm.$invalid"/>
+            <a id="btnCancel" ng-href="/" class="btn btn-info btn-sm">Cancel</a>
+        </div>
+        <wait-cursor id="imgWaitSpinner" ng-show="viewModel.isBusy"></wait-cursor>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+<div id="smallCard" class="col-md-12">
+    <div class="row">
+        <h2>Add Dependents</h2>
+        <h4>{{viewModel.employeeInfo.name}}</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <table class="table table-responsive table-striped table-hover">
+                <tr>
+                    <th>Dependents:</th>
+                </tr>
+                <tr ng-repeat="dependent in viewModel.dependents">
+                    <td>{{dependent.name}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <form novalidate name="newDependentsForm" ng-submit="viewModel.addDependent()">
+            <div class="form-group">
+                <label for="name">Name: (Required)</label>
+                <input class="form-control" type="text" id="name" name="name" ng-model="viewModel.newDependent.name" required/>
+                <span ng-show="newDependentsForm.name.$error.required" class="text-warning">Name is required.</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success btn-sm" value="Add" ng-disabled="newDependentsForm.$invalid"/>
+                <a href="/" id="btnCancel" class="btn btn-info btn-sm">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <wait-cursor id="imgWaitSpinner" ng-show="viewModel.isBusy"></wait-cursor>
+</div>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "WebBenefitsDemo";
+}
+
+@section Scripts{
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/app/app-employees.js"></script>
+    <script src="~/Scripts/controllers/employeesController.js"></script>
+    <script src="~/Scripts/controllers/dependentscontroller.js"></script>
+    <script src="~/Scripts/controllers/employeedetailcontroller.js"></script>
+    <script src="~/Scripts/controllers/employeeDeleteController.js"></script>
+    <script src="~/Scripts/directives/reusableControls.js"></script>
+    <script src="~/Scripts/controllers/employeeEditorController.js"></script>
+}
+
+<body>
+    <div class="row" ng-app="app-employees">
+        <div ng-view></div>
+    </div>
+</body>

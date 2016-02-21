@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="EmployeeContext-Web.config Connection String" description="EmployeeContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=184.168.194.53;Initial Catalog=awrightBlogDb;Integrated Security=False;User ID=awright;Password=h3X1nj3ct!0N;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Paylocity\\QA\.InterviewV2\\QA\.InterviewV2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EmployeeContext']/@connectionString" />
+  </parameter>
+</parameters>
