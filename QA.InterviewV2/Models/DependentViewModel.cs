@@ -21,11 +21,11 @@ namespace QA.InterviewV2.Models
             {
                 if (Name.ToUpper().StartsWith("A"))
                 {
-                    return (decimal)(1000.00 / 26 - (1000.00 / 26 * .1));
+                    return (decimal)(500.00 / 26 - (500.00 / 26 * .1));
                 }
                 else
                 {
-                    return (decimal)(1000.00 / 26);
+                    return (decimal)(500.00 / 26);
                 }
             }
         }

@@ -44,7 +44,7 @@ namespace QA.InterviewV2.Controllers
                 _employeeRepository.AddEmployee(newEmployee);
                 if (_employeeRepository.SaveAll())
                 {     
-                    return Created("",Mapper.Map<EmployeeViewModel>(newEmployee));
+                    return Created(newEmployee.ToString() ,Mapper.Map<EmployeeViewModel>(newEmployee));
                 }
             }
             catch (Exception ex)

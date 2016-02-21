@@ -14,7 +14,7 @@ namespace QA.InterviewV2.Data.Repositories
         Employee GetEmployeesWithDependentsById(int employeeId);
         void AddEmployee(Employee newEmployee);
         void EditEmployee(Employee editEmployee);
-        Employee DeleteEmployee(int id);
+        void DeleteEmployee(int id);
         void AddDependent(int employeeId, Dependent newDependent);
         bool SaveAll();
 
