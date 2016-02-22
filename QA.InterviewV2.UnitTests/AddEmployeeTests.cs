@@ -175,19 +175,14 @@ namespace QA.InterviewV2.UnitTests
             };
             var validEmployee2 = new Employee
             {
-                EmployeeId = 1338,
                 Dependents = new []
                 {
                     new Dependent
                     {
-                        EmployeeId = 1338,
-                        DependentId = 9002,
                         Name = "Lzzy Hale"
                     },
                     new Dependent
                     {
-                        EmployeeId = 1338,
-                        DependentId = 9003,
                         Name = "Tarja Turunen"
                     }
                 },
@@ -196,26 +191,19 @@ namespace QA.InterviewV2.UnitTests
             };
             var validEmployee3 = new Employee
             {
-                EmployeeId = 1339,
                 Dependents = new []
                 {
                     new Dependent
                     {
-                        EmployeeId = 1339,
-                        DependentId = 9004,
                         Name = "Wayne Static"
                     },
                     new Dependent
                     {
-                        EmployeeId = 1339,
-                        DependentId = 9005,
                         Name = "Freddie Mercury"
                     },
                     new Dependent
                     {
-                        EmployeeId = 1339,
-                        DependentId = 9006,
-                        Name = "John BonJovi"
+                        Name = "Jon BonJovi"
                     }
                 },
                 Name = "Jack Black",
