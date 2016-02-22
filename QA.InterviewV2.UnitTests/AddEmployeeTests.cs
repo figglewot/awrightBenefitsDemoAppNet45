@@ -11,11 +11,9 @@ namespace QA.InterviewV2.UnitTests
     {
         private EmployeeContext _context;
         private EmployeeRepository _employeeRepo;
-        private const int ValidEmployeeId = 1337;
         private const string ValidEmployeeName = "GetYour TestOn";
         private const decimal ValidEmployeePayRate = 2000;
         private const string InvalidEmployeeName = null;
-        private const int ValidDependentId = 9001;
         private const string ValidDependentName = "CoolKid McCoolington";
 
         [SetUp]
@@ -38,7 +36,6 @@ namespace QA.InterviewV2.UnitTests
             //Arrange
             var validEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Name = ValidEmployeeName,
                 PayRate = ValidEmployeePayRate
             };
@@ -59,7 +56,6 @@ namespace QA.InterviewV2.UnitTests
             //Arrange
             var invalidEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Name = InvalidEmployeeName,
                 PayRate = ValidEmployeePayRate
             };
@@ -77,13 +73,10 @@ namespace QA.InterviewV2.UnitTests
         {
             var validEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Dependents = new[]
                 {
                     new Dependent
                     {
-                        DependentId = ValidDependentId,
-                        EmployeeId = ValidEmployeeId,
                         Name = ValidDependentName
                     }
                 },
@@ -103,19 +96,16 @@ namespace QA.InterviewV2.UnitTests
         {
             var validEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Name = ValidEmployeeName,
                 PayRate = ValidEmployeePayRate
             };
             var validEmployee2 = new Employee
             {
-                EmployeeId = 1338,
                 Name = "Dio",
                 PayRate = ValidEmployeePayRate
             };
             var validEmployee3 = new Employee
             {
-                EmployeeId = 1339,
                 Name = "Jack Black",
                 PayRate = ValidEmployeePayRate
             };
@@ -140,27 +130,20 @@ namespace QA.InterviewV2.UnitTests
         {
             var validEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Dependents = new[]
                  {
                     new Dependent
                     {
-                        DependentId = ValidDependentId,
-                        EmployeeId = ValidEmployeeId,
                         Name = ValidDependentName
                     },
 
                     new Dependent
                     {
-                        DependentId = 9002,
-                        EmployeeId = ValidEmployeeId,
                         Name = "Howard Jones"
                     },
 
                     new Dependent
                     {
-                        DependentId = 9003,
-                        EmployeeId = ValidEmployeeId,
                         Name = "Lzzy Hale"
                     }
                 },
@@ -180,13 +163,10 @@ namespace QA.InterviewV2.UnitTests
         {
             var validEmployee = new Employee
             {
-                EmployeeId = ValidEmployeeId,
                 Dependents = new []
                 {
                     new Dependent
                     {
-                        EmployeeId = ValidEmployeeId,
-                        DependentId = ValidDependentId,
                         Name = ValidDependentName
                     }
                 },

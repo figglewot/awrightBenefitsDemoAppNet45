@@ -10,17 +10,14 @@ C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\roslyn\System.Ref
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\roslyn\vbc.exe
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\roslyn\VBCSCompiler.exe.config
-C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.UnitTests.dll.config
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.UnitTests.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.UnitTests.pdb
-C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Moq.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Ninject.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\nunit.core.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\nunit.core.interfaces.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\nunit.framework.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\nunit.util.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\NUnit.VisualStudio.TestAdapter.dll
-C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Ploeh.AutoFixture.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.Data.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\System.Web.Http.dll
@@ -41,10 +38,8 @@ C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\System.Web.WebPag
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.Data.pdb
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.pdb
-C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Moq.xml
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Ninject.xml
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\nunit.framework.xml
-C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\Ploeh.AutoFixture.xml
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\System.Web.Http.xml
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\EntityFramework.xml
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\System.Web.Mvc.xml
@@ -64,3 +59,4 @@ C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\obj\Debug\QA.InterviewV2.Un
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\obj\Debug\QA.InterviewV2.UnitTests.pdb
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Paylocity\QA.InterviewV2\QA.InterviewV2.UnitTests\bin\Debug\QA.InterviewV2.UnitTests.dll.config
