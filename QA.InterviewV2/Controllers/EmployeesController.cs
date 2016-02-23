@@ -38,6 +38,7 @@ namespace QA.InterviewV2.Controllers
         [HttpPost]
         public IHttpActionResult Post([FromBody]EmployeeViewModel viewModel)
         {
+            if (!ModelState.IsValid) return BadRequest();
             try
             {
                 var newEmployee = Mapper.Map<Employee>(viewModel);
@@ -59,6 +60,7 @@ namespace QA.InterviewV2.Controllers
         [HttpPatch]
         public IHttpActionResult Patch([FromBody]EmployeeViewModel viewModel, int id)
         {
+            if (!ModelState.IsValid) return BadRequest();
             try
             {
                 var editEmployee = Mapper.Map<Employee>(viewModel);
@@ -71,7 +73,7 @@ namespace QA.InterviewV2.Controllers
             catch (Exception ex)
             {
                 //Out of concerns for security, we do need to be careful showing raw exception data, but for this case it should be fine.
-                return BadRequest(ex.ToString());
+                return BadRequest(ex.Message);
             }
 
             return BadRequest();
@@ -80,6 +82,7 @@ namespace QA.InterviewV2.Controllers
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
+            if (!ModelState.IsValid) return BadRequest();
             try
             {
                 _employeeRepository.DeleteEmployee(id);

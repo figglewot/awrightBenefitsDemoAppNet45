@@ -17,6 +17,5 @@ namespace QA.InterviewV2.Data.Repositories
         void DeleteEmployee(int id);
         void AddDependent(int employeeId, Dependent newDependent);
         bool SaveAll();
-
     }
 }

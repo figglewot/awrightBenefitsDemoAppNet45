@@ -30,13 +30,14 @@ namespace QA.InterviewV2.Controllers
         [HttpPost]
         public IHttpActionResult Post(int id, [FromBody] DependentViewModel viewModel)
         {
+            if (!ModelState.IsValid) return BadRequest();
             try
             {
                 var newDependent = Mapper.Map<Dependent>(viewModel);
                 _employeeRepository.AddDependent(id, newDependent);
                 if (_employeeRepository.SaveAll())
                 {
-                    return Created("",Mapper.Map<DependentViewModel>(newDependent));
+                    return Created("", Mapper.Map<DependentViewModel>(newDependent));
                 }
             }
             catch (Exception ex)

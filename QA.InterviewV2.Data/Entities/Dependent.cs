@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QA.InterviewV2.Data.Managers;
 
 namespace QA.InterviewV2.Data.Entities
 {
@@ -10,7 +12,18 @@ namespace QA.InterviewV2.Data.Entities
     {
         public int DependentId { get; set; }
         public int EmployeeId { get; set; }
+        [Required]
         public string Name { get; set; }
+
+        public decimal CostOfBenefits
+        {
+            get
+            {
+                var benefitCalculationManager = new BenefitCalculationManager();
+                return benefitCalculationManager.CalculateCostOfBenefits(this);
+            }
+        }
+
         public Employee Employee { get; set; }
     }
 }

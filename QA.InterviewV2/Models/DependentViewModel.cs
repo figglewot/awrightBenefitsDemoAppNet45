@@ -14,20 +14,6 @@ namespace QA.InterviewV2.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-
-        public decimal CostOfBenefits
-        {
-            get
-            {
-                if (Name.ToUpper().StartsWith("A"))
-                {
-                    return (decimal)(500.00 / 26 - (500.00 / 26 * .1));
-                }
-                else
-                {
-                    return (decimal)(500.00 / 26);
-                }
-            }
-        }
+        public decimal CostOfBenefits { get; set; }
     }
 }

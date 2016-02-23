@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using QA.InterviewV2.Data.Context;
 using QA.InterviewV2.Data.Entities;
 using System.Data.Entity;
+using QA.InterviewV2.Data.Managers;
 
 namespace QA.InterviewV2.Data.Repositories
 {
