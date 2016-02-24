@@ -78,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddEmployeeTests.cs" />
+    <Compile Include="CostCalculationTests.cs" />
+    <Compile Include="DeleteEmployeeTests.cs" />
+    <Compile Include="EditEmployeeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,7 @@ namespace QA.InterviewV2.UnitTests
         private const decimal ValidEmployeePayRate = 2000;
         private const string InvalidEmployeeName = null;
         private const string ValidDependentName = "CoolKid McCoolington";
+        private const string InvalidDependentName = null;
 
         [SetUp]
         public void AddEmployeeTests_DataSetUp()
@@ -42,7 +43,6 @@ namespace QA.InterviewV2.UnitTests
 
             //Act
             _employeeRepo.AddEmployee(validEmployee);
-            _employeeRepo.SaveAll();
             var validatedEmployee = _context.Employees.Local[0];
 
             //Assert
@@ -85,7 +85,6 @@ namespace QA.InterviewV2.UnitTests
             };
 
             _employeeRepo.AddEmployee(validEmployee);
-            _employeeRepo.SaveAll();
             var validatedEmployee = _context.Employees.Local[0];
 
             Assert.That(validEmployee, Is.EqualTo(validatedEmployee));
@@ -114,7 +113,6 @@ namespace QA.InterviewV2.UnitTests
             _employeeRepo.AddEmployee(validEmployee);
             _employeeRepo.AddEmployee(validEmployee2);
             _employeeRepo.AddEmployee(validEmployee3);
-            _employeeRepo.SaveAll();
             var validatedEmployee = _context.Employees.Local[0];
             var validatedEmployee2 = _context.Employees.Local[1];
             var validatedEmployee3 = _context.Employees.Local[2];
@@ -152,7 +150,6 @@ namespace QA.InterviewV2.UnitTests
             };
 
             _employeeRepo.AddEmployee(validEmployee);
-            _employeeRepo.SaveAll();
             var validatedEmployee = _context.Employees.Local[0];
 
             Assert.That(validEmployee, Is.EqualTo(validatedEmployee));
@@ -214,7 +211,6 @@ namespace QA.InterviewV2.UnitTests
             _employeeRepo.AddEmployee(validEmployee);
             _employeeRepo.AddEmployee(validEmployee2);
             _employeeRepo.AddEmployee(validEmployee3);
-            _employeeRepo.SaveAll();
             var validatedEmployee = _context.Employees.Local[0];
             var validatedEmployee2 = _context.Employees.Local[1];
             var validatedEmployee3 = _context.Employees.Local[2];
@@ -223,6 +219,54 @@ namespace QA.InterviewV2.UnitTests
             Assert.That(validEmployee, Is.EqualTo(validatedEmployee));
             Assert.That(validEmployee2, Is.EqualTo(validatedEmployee2));
             Assert.That(validEmployee3, Is.EqualTo(validatedEmployee3));
+        }
+
+        [Test]
+        public void AddEmployee_NoNameDependentShouldFail()
+        {
+            //Arrange
+            var validEmployeeInvalidDependent = new Employee
+            {
+                Dependents = new[]
+                {
+                    new Dependent
+                    {
+                        Name = InvalidDependentName
+                    }
+                },
+                Name = ValidEmployeeName,
+                PayRate = ValidEmployeePayRate
+            };
+
+            //Act
+            _employeeRepo.AddEmployee(validEmployeeInvalidDependent);
+
+            //Assert
+            Assert.That(() => _employeeRepo.SaveAll(), Throws.Exception);
+        }
+
+        [Test]
+        public void AddEmployee_NoNameEmployeeNoNameDependentShouldFail()
+        {
+            //Arrange
+            var invalidEmployeeInvalidDependent = new Employee
+            {
+                Dependents = new[]
+                {
+                    new Dependent
+                    {
+                        Name = InvalidDependentName
+                    }
+                },
+                Name = InvalidEmployeeName,
+                PayRate = ValidEmployeePayRate
+            };
+
+            //Act
+            _employeeRepo.AddEmployee(invalidEmployeeInvalidDependent);
+
+            //Assert
+            Assert.That(() => _employeeRepo.SaveAll(), Throws.Exception);
         }
     }
 }
